@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("device")
@@ -67,5 +68,23 @@ public class DeviceController {
             throw new DeviceNotFoundException("No se ha encontrado el dispositivo");
         }
         return new ResponseEntity<Device>(macDevice, HttpStatus.OK);
+    }
+
+    /**
+     * Get by id optional.
+     *
+     * @param id of the device
+     * @return the optional
+     */
+    @GetMapping("/{id}")
+    public Optional<Device> getById(@PathVariable Integer id){
+        Optional<Device> device = deviceService.findDeviceById(id);
+        if(!device.isPresent()){
+            throw new DeviceNotFoundException("No se ha encontrado el dispositivo");
+        }
+        if(id==null){
+            throw new DeviceBadRequestException("El id no es correcto");
+        }
+        return device;
     }
 }

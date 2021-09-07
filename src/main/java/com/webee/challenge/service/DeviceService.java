@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DeviceService {
@@ -50,5 +51,15 @@ public class DeviceService {
     public List<Device> findAll(){
         List<Device> devices = deviceRepository.findAll();
         return devices;
+    }
+
+    /**
+     * Find device by id optional.
+     * The method recieve the id of the device
+     * @param id of the device
+     * @return the optional
+     */
+    public Optional<Device> findDeviceById(Integer id){
+        return deviceRepository.findById(id);
     }
 }
