@@ -41,4 +41,14 @@ public class DeviceService {
         Device device = deviceRepository.findBymac(mac);
         return device;
     }
+
+    /**
+     * Find all devices.
+     *
+     * @return the list
+     */
+    public List<Device> findAll(){
+        List<Device> devices = deviceRepository.findAll();
+        return devices;
+    }
 }
