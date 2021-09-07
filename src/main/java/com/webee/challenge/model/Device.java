@@ -31,7 +31,7 @@ public class Device {
         return id;
     }
 
-    public String getMAC() {
+    public String getMac() {
         return mac;
     }
 
