@@ -1,6 +1,5 @@
 package com.webee.challenge.controller;
 
-import com.webee.challenge.device.exception.DeviceBadRequestException;
 import com.webee.challenge.device.exception.DeviceNotFoundException;
 import com.webee.challenge.model.Device;
 import com.webee.challenge.service.DeviceService;
@@ -9,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,10 +35,7 @@ public class DeviceController {
      * @return the device
      */
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Device> insertDevice(@RequestBody Device device) {
-        if(device.getMac() == null){
-            throw new DeviceBadRequestException("El dispositivo no es correcto");
-        }
+    public ResponseEntity<Device> insertDevice(@Valid @RequestBody Device device) {
         deviceService.addDevice(device);
         return new ResponseEntity<Device>
                 (deviceService.findDeviceByMAC(device.getMac()), HttpStatus.OK);
@@ -79,11 +76,8 @@ public class DeviceController {
     @GetMapping("/{id}")
     public Optional<Device> getById(@PathVariable Integer id){
         Optional<Device> device = deviceService.findDeviceById(id);
-        if(!device.isPresent()){
+        if(!device.isPresent()) {
             throw new DeviceNotFoundException("No se ha encontrado el dispositivo");
-        }
-        if(id==null){
-            throw new DeviceBadRequestException("El id no es correcto");
         }
         return device;
     }

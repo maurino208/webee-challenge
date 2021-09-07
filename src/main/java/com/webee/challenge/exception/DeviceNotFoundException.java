@@ -1,4 +1,4 @@
-package com.webee.challenge.device.exception;
+package com.webee.challenge.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

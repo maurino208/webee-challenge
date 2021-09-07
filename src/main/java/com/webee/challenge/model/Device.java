@@ -1,6 +1,7 @@
 package com.webee.challenge.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.webee.challenge.valitors.MacAddressContraint;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -22,10 +23,18 @@ public class Device {
     @Column(unique = true, nullable = false)
     private Integer id;
 
+    @MacAddressContraint
     private String mac;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "ddMMyyyy")
     private Date timestamp = new Date();
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
 
     public Integer getId() {
         return id;
@@ -36,7 +45,7 @@ public class Device {
     }
 
     public void setMac(String mac) {
-        this.mac = mac.replaceAll("(..)(?!$)", "$1:");
+        this.mac = mac;
     }
 
     public Date getTimestamp() {
