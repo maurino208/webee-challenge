@@ -62,4 +62,13 @@ public class DeviceService {
     public Optional<Device> findDeviceById(Integer id){
         return deviceRepository.findById(id);
     }
+
+    /**
+     * Delete device by id.
+     * The method recieve the id of the device
+     * @param id the id
+     */
+    public void deleteDeviceById(Integer id){
+        deviceRepository.deleteById(id);
+    }
 }

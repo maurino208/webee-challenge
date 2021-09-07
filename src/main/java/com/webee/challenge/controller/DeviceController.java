@@ -87,4 +87,18 @@ public class DeviceController {
         }
         return device;
     }
+
+    /**
+     * Delete by id.
+     *
+     * @param id of the device
+     */
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable Integer id){
+        Optional<Device> device = deviceService.findDeviceById(id);
+        if(!device.isPresent()){
+            throw new DeviceNotFoundException("No se ha encontrado el dispositivo");
+        }
+        deviceService.deleteDeviceById(id);
+    }
 }
