@@ -1,6 +1,6 @@
 package com.webee.challenge.controller;
 
-import com.webee.challenge.device.exception.DeviceNotFoundException;
+import com.webee.challenge.exception.DeviceNotFoundException;
 import com.webee.challenge.model.Device;
 import com.webee.challenge.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
