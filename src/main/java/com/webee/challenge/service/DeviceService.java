@@ -11,25 +11,16 @@ import java.util.Optional;
 @Service
 public class DeviceService {
 
-    private final DeviceRepository deviceRepository;
-
-    /**
-     * Instantiates a new Device service.
-     *
-     * @param deviceRepository the device repository
-     */
     @Autowired
-    public DeviceService(DeviceRepository deviceRepository) {
-        this.deviceRepository = deviceRepository;
-    }
+    private DeviceRepository deviceRepository;
 
     /**
      * Add device.
      *
      * @param device the device
      */
-    public Device addDevice(Device device){
-        return deviceRepository.save(device);
+    public void addDevice(Device device){
+        deviceRepository.save(device);
     }
 
     /**

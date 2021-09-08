@@ -16,17 +16,8 @@ import java.util.Optional;
 @RequestMapping("device")
 public class DeviceController {
 
-    private final DeviceService deviceService;
-
-    /**
-     * Instantiates a new Device controller.
-     *
-     * @param deviceService the device service
-     */
     @Autowired
-    public DeviceController(DeviceService deviceService) {
-        this.deviceService = deviceService;
-    }
+    private DeviceService deviceService;
 
     /**
      * Insert the new device.

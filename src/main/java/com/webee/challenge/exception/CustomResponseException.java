@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ControllerAdvice
-public class CustomeResponseException extends ResponseEntityExceptionHandler {
+public class CustomResponseException extends ResponseEntityExceptionHandler {
 
     /**
      * Handle user not found exception response entity.
@@ -43,7 +43,6 @@ public class CustomeResponseException extends ResponseEntityExceptionHandler {
         ApiError apiError = new ApiError("Internal Server Error", ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
         return ResponseEntity.status(apiError.getStatus()).body(apiError);
     }
-
 
     /**
      * Handle method argument not valid
