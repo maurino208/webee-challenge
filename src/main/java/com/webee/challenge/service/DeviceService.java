@@ -71,8 +71,4 @@ public class DeviceService {
     public void deleteDeviceById(Integer id){
         deviceRepository.deleteById(id);
     }
-
-    private void checkMacAddress(String mac){
-
-    }
 }
