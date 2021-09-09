@@ -19,14 +19,5 @@ public @interface DateLimitContraint {
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
     Date dateLimit = new GregorianCalendar(2019, 11, 31).getTime();
-    /*
-    Date value();
-    @Target({ ElementType.FIELD })
-    @Retention(RUNTIME)
-    @Documented
-    @interface List {
-        DateLimitContraint[] value();
-    }
-     */
 
 }

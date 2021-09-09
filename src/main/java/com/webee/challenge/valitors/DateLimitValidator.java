@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class DateLimitValidator implements ConstraintValidator<DateLimitContraint, Date> {
 
-    private Date dateLimit;
+    private Date date;
 
     @Override
     public boolean isValid(Date value, ConstraintValidatorContext constraintValidatorContext) {
@@ -14,7 +14,7 @@ public class DateLimitValidator implements ConstraintValidator<DateLimitContrain
         if(value == null){
             return false;
         }
-        if(dateLimit.before(value)){
+        if(date.before(value)){
             return true;
         }else{
             return false;
@@ -24,7 +24,7 @@ public class DateLimitValidator implements ConstraintValidator<DateLimitContrain
 
     @Override
     public void initialize(DateLimitContraint constraintAnnotation) {
-        this.dateLimit = constraintAnnotation.dateLimit;
+        this.date = constraintAnnotation.dateLimit;
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 }
