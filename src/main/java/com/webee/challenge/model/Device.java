@@ -31,6 +31,14 @@ public class Device {
     @DateLimitContraint
     private Date timestamp;
 
+    public Device(Integer id, String mac, Date timestamp) {
+        this.id = id;
+        this.mac = mac;
+        this.timestamp = timestamp;
+    }
+
+    public Device() {
+    }
 
     public Integer getId() {
         return id;

@@ -27,9 +27,8 @@ public class DeviceController {
      */
     @PostMapping(consumes = "application/json", produces = "application/json")
     public ResponseEntity<Device> insertDevice(@Valid @RequestBody Device device) {
-        deviceService.addDevice(device);
         return new ResponseEntity<Device>
-                (deviceService.findDeviceByMAC(device.getMac()), HttpStatus.OK);
+                (deviceService.addDevice(device), HttpStatus.OK);
     }
 
     /**
@@ -80,10 +79,6 @@ public class DeviceController {
      */
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable Integer id){
-        Optional<Device> device = deviceService.findDeviceById(id);
-        if(!device.isPresent()){
-            throw new DeviceNotFoundException("No se ha encontrado el dispositivo");
-        }
         deviceService.deleteDeviceById(id);
     }
 }

@@ -19,8 +19,8 @@ public class DeviceService {
      *
      * @param device the device
      */
-    public void addDevice(Device device){
-        deviceRepository.save(device);
+    public Device addDevice(Device device){
+        return deviceRepository.save(device);
     }
 
     /**
