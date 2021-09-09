@@ -5,12 +5,13 @@ _Que cosas necesitas para instalar el software y como instalarlas_
 ```
 JAVA 11
 MAVEN 3.8.2
+MySQL
 ```
 ### Instalación 🔧
 
 * [JAVA](https://www.oracle.com/ar/java/technologies/javase-jdk11-downloads.html) - Java Version 11
 * [MAVEN](https://maven.apache.org/download.cgi) - Maven Version 3.8.2
-
+* [MySQL](https://www.mysql.com/downloads/) - MySQL Database Service
 ### Cómo correr el proyecto ⌨️
 
 <img width="503" alt="Screenshot_1" src="https://user-images.githubusercontent.com/56134133/132606774-8a89111f-4e04-4e53-a744-b9c864be44e2.png">
